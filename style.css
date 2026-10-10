@@ -52,3 +52,32 @@ a {
 li {
   margin: 0.3em 0;
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+}
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  width: 30%;
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  th,
+  td {
+    display: block;
+    width: auto;
+    white-space: normal;
+  }
+  th {
+    border-bottom: none;
+    padding-bottom: 2px;
+  }
+}
