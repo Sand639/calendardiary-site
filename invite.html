@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>日記カレンダーへの招待</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>日記カレンダーへの招待</h1>
+<p>「日記カレンダー」の共有カレンダーに招待されました。</p>
+
+<p id="error" hidden>招待リンクが正しくありません。</p>
+<noscript><p>招待を開くには、JavaScript をオンにしてください。</p></noscript>
+
+<p><a id="open" class="button" href="#" hidden>アプリで開く</a></p>
+<p><a class="button button-sub" href="https://apps.apple.com/jp/app/id6823230412">App Store で入手</a></p>
+
+<p>アプリを入れたら、もう一度このページを開いて『アプリで開く』を押してください。</p>
+</main>
+<script>
+(function () {
+  var token = location.hash.replace(/^#/, "");
+  var open = document.getElementById("open");
+  if (/^[A-Za-z0-9_-]{16,64}$/.test(token)) {
+    open.href = "calendardiary://invite/" + token;
+    open.hidden = false;
+  } else {
+    document.getElementById("error").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
